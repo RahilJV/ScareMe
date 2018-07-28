@@ -22,13 +22,8 @@ public class NotificationHelper {
     public static int ALARM_TYPE_ELAPSED = 101;
     private static AlarmManager alarmManagerElapsed;
     private static PendingIntent alarmIntentElapsed;
-    public static Context mContext;
 
-    public void onReceive(Context c, Intent i) {
-        mContext = c;
-    }
-
-    public static void scheduleRepeatingRTCNotification(AlarmFragment context, int hour, int min) {
+    public static void scheduleRepeatingRTCNotification(Context context, int hour, int min) {
 
         Log.d(TAG, "Hour: " + hour);
         Log.d(TAG, "Minute: " + min);
@@ -40,12 +35,12 @@ public class NotificationHelper {
         calendar.set(Calendar.HOUR_OF_DAY,hour, min);
 
         //Setting intent to class where Alarm broadcast message will be handled
-        Intent intent = new Intent(mContext, AlarmReceiver.class);
+        Intent intent = new Intent(context, AlarmReceiver.class);
         //Setting alarm pending intent
-        alarmIntentRTC = PendingIntent.getBroadcast(mContext, ALARM_TYPE_RTC, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmIntentRTC = PendingIntent.getBroadcast(context, ALARM_TYPE_RTC, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //getting instance of AlarmManager service
-        alarmManagerRTC = (AlarmManager)mContext.getSystemService(Context.ALARM_SERVICE);
+        alarmManagerRTC = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
 
         //Setting alarm to wake up device every day for clock time.
         //AlarmManager.RTC_WAKEUP is responsible to wake up device for sure, which may not be good practice all the time.
@@ -56,16 +51,16 @@ public class NotificationHelper {
                 calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntentRTC);
     }
 
-    public static void scheduleRepeatingElapsedNotification(AlarmFragment context) {
+    public static void scheduleRepeatingElapsedNotification(Context context) {
 
         //Setting intent to class where notification will be handled
-        Intent intent = new Intent(mContext, AlarmReceiver.class);
+        Intent intent = new Intent(context, AlarmReceiver.class);
 
         //Setting pending intent to respond to broadcast sent by AlarmManager everyday at 8am
-        alarmIntentElapsed = PendingIntent.getBroadcast(mContext, ALARM_TYPE_ELAPSED, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmIntentElapsed = PendingIntent.getBroadcast(context, ALARM_TYPE_ELAPSED, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //getting instance of AlarmManager service
-        alarmManagerElapsed = (AlarmManager)mContext.getSystemService(Context.ALARM_SERVICE);
+        alarmManagerElapsed = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
 
         //Inexact alarm everyday since device is booted up. This is a better choice and
         //scales well when device time settings/locale is changed

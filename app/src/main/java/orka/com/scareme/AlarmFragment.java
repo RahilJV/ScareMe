@@ -54,7 +54,7 @@ public class AlarmFragment extends Fragment {
                     }
                     else
                     {
-                        NotificationHelper.scheduleRepeatingRTCNotification(AlarmFragment.this,
+                        NotificationHelper.scheduleRepeatingRTCNotification(getActivity().getApplicationContext(),
                                 alarmTimePicker.getCurrentHour(), alarmTimePicker.getCurrentMinute());
                         Log.d(TAG,"lesser than 6.0");
                     }
