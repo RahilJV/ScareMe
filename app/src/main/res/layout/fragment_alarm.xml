@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlarmFragment">
+    tools:context=".AlarmFragment"
+    android:background="@color/colorPrimaryDark">
 
     <!-- TODO: Update blank fragment layout -->
     <TimePicker
@@ -12,7 +13,9 @@
         android:layout_height="439dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:headerBackground="@color/colorPrimaryDark" />
+        android:headerBackground="@color/colorPrimaryDark"
+        android:numbersBackgroundColor="@color/colorPrimary"
+        android:numbersTextColor="@color/colorWhite"/>
 
 
     <ToggleButton
