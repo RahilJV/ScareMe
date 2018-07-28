@@ -1,4 +1,4 @@
-package orka.com.scareme;
+package orka.com.scareme.models;
 
 import android.app.AlarmManager;
 import android.app.NotificationManager;
@@ -11,6 +11,8 @@ import android.os.SystemClock;
 import android.util.Log;
 
 import java.util.Calendar;
+
+import orka.com.scareme.services.AlarmReceiver;
 
 public class NotificationHelper {
 
@@ -25,14 +27,24 @@ public class NotificationHelper {
 
     public static void scheduleRepeatingRTCNotification(Context context, int hour, int min) {
 
-        Log.d(TAG, "Hour: " + hour);
+        Log.d(TAG, "HourNotification: " + hour);
         Log.d(TAG, "Minute: " + min);
 
         //get calendar instance to be able to select what time notification should be scheduled
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         //Setting time of the day (8am here) when notification will be sent every day (default)
-        calendar.set(Calendar.HOUR_OF_DAY,hour, min);
+
+
+        //If we are taking dates also as parameters, then add this lines of code
+
+//        cal.set(Calendar.MONTH,6); // Months start from 0 -> January so month will be month - 1
+//        cal.set(Calendar.YEAR,2011);
+//        cal.set(Calendar.DAY_OF_MONTH,29);
+
+        calendar.set(Calendar.HOUR_OF_DAY,hour);
+        calendar.set(Calendar.MINUTE, min);
+
 
         //Setting intent to class where Alarm broadcast message will be handled
         Intent intent = new Intent(context, AlarmReceiver.class);

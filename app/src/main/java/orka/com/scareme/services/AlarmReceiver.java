@@ -1,4 +1,4 @@
-package orka.com.scareme;
+package orka.com.scareme.services;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -7,15 +7,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
+import orka.com.scareme.activities.TestActivity;
+import orka.com.scareme.models.NotificationHelper;
+
 public class AlarmReceiver extends BroadcastReceiver {
 
     public static final String NOTIFICATION_CHANNEL_ID = "Alarm";
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        //Intent to invoke app when click on notification.
-        //In this sample, we want to start/launch this sample app when user clicks on notification
+
+        //Intent to invoke app when click on notification
         Intent intentToRepeat = new Intent(context, TestActivity.class);
+
         //set flag to restart/relaunch the app
         intentToRepeat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 

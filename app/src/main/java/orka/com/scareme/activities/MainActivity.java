@@ -1,13 +1,16 @@
-package orka.com.scareme;
+package orka.com.scareme.activities;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+
+import orka.com.scareme.R;
+import orka.com.scareme.fragments.AlarmFragment;
+import orka.com.scareme.fragments.SettingsFragments;
+import orka.com.scareme.fragments.StoryFragment;
 
 public class MainActivity extends AppCompatActivity {
 
