@@ -4,6 +4,8 @@ package orka.com.scareme.fragments;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,18 +28,19 @@ public class AlarmFragment extends Fragment {
     TimePicker alarmTimePicker;
     @BindView(R.id.alarmToggle)
     ToggleButton alarmToggle;
+    private FloatingActionButton fab;
 
 
     public AlarmFragment() {
         // Required empty public constructor
     }
 
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_alarm, container, false);
         // Inflate the layout for this fragment
         ButterKnife.bind(this, view);
-
         alarmToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
