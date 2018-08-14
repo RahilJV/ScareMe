@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AlarmFragment">
+    tools:context=".fragments.AlarmFragment"
+    android:background="@color/colorPrimaryDark">
 
     <!-- TODO: Update blank fragment layout -->
     <TimePicker
         android:id="@+id/alarmTimePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:numbersBackgroundColor="@color/colorPrimary"
         android:numbersSelectorColor="@color/colorAccent"
         android:numbersTextColor="@color/colorWhite"
-        android:numbersInnerTextColor="@color/colorWhite"
-        android:timePickerMode="spinner">
+        android:numbersInnerTextColor="@color/colorWhite">
 
     </TimePicker>
 
