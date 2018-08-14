@@ -3,19 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AlarmFragment"
-    android:background="@color/colorPrimaryDark">
+    tools:context=".fragments.AlarmFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TimePicker
         android:id="@+id/alarmTimePicker"
-        android:layout_width="wrap_content"
-        android:layout_height="439dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:headerBackground="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:numbersBackgroundColor="@color/colorPrimary"
-        android:numbersTextColor="@color/colorWhite"/>
+        android:numbersSelectorColor="@color/colorAccent"
+        android:numbersTextColor="@color/colorWhite"
+        android:numbersInnerTextColor="@color/colorWhite"
+        android:timePickerMode="spinner">
+
+    </TimePicker>
+
 
 
     <ToggleButton
@@ -28,16 +31,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:checked="false"
-        android:text="Alarm On/Off" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/alarmText"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/alarmToggle" />
+        android:text="Alarm On/Off"
+        android:textColor="@color/colorAccent"/>
 
 </FrameLayout>

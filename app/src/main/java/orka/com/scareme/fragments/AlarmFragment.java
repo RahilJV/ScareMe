@@ -27,6 +27,7 @@ public class AlarmFragment extends Fragment {
     @BindView(R.id.alarmToggle)
     ToggleButton alarmToggle;
 
+
     public AlarmFragment() {
         // Required empty public constructor
     }
